@@ -38,7 +38,8 @@ paths = [
 for path in paths:
     save_path = os.path.join(DEST_DIR, path.lstrip("/"))
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
-    
+
+    print(f"Downloading {path}...")
     response = requests.get(BASE_URL + path)
     with open(save_path, "wb") as f:
         f.write(response.content)
