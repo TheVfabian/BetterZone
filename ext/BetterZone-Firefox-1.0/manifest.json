@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+  "name": "BetterZone",
+  "version": "1.0.0",
+  "description": "BetterZone Firefox, Stable Version 1.0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "betterzone@betterzone.local"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://rec.zone/game*",
+        "*://rec.zone/dorm*",
+        "*://www.rec.zone/game*",
+        "*://www.rec.zone/dorm*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start",
+      "css": [
+        "boot.css"
+      ]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "*://rec.zone/*",
+    "*://www.rec.zone/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  }
+}
