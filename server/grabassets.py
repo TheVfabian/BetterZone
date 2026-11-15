@@ -1,10 +1,10 @@
-# This script downloads assets from the rec.zone server and saves them to the local staticassets directory.
 import os
 import requests
 
 BASE_URL = "https://rec.zone"
 DEST_DIR = "./staticassets"
 
+# Music paths
 paths = [
     "/uploads/music/mwe48ois-nblkq5.mp3",
     "/uploads/music/mwe48r1l-4hipj7.mp3",
@@ -38,7 +38,7 @@ paths = [
 for path in paths:
     save_path = os.path.join(DEST_DIR, path.lstrip("/"))
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
-
+# Downloading all the music into our own staticassets directory
     print(f"Downloading {path}...")
     response = requests.get(BASE_URL + path)
     with open(save_path, "wb") as f:
